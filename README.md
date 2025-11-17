@@ -1,10 +1,10 @@
-# Mit — PSR-14 Event Dispatcher (Type-safe)
+# Mit - PSR-14 Event Dispatcher (Type-safe)
 
 A lightweight, type-safe, PSR-14 compliant event dispatcher for modern PHP.
 
 Designed for projects that need a small, well-typed event/message system with first-class callable support, priority ordering, one-time listeners, and propagation control.
 
-Badges: [![CI](https://github.com/juststeveking/mit/actions/workflows/ci.yml/badge.svg)](https://github.com/juststeveking/mit/actions/workflows/ci.yml) [![Release](https://github.com/juststeveking/mit/actions/workflows/release.yml/badge.svg)](https://github.com/juststeveking/mit/actions/workflows/release.yml) [![Packagist](https://img.shields.io/packagist/v/juststeveking/mit)](https://packagist.org/packages/juststeveking/mit) [![Codecov](https://codecov.io/gh/juststeveking/mit/branch/main/graph/badge.svg?token=)](https://codecov.io/gh/juststeveking/mit) [![PHP](https://img.shields.io/badge/php-%5E8.1-8892BF)](https://www.php.net/)
+[![CI](https://github.com/juststeveking/mit/actions/workflows/ci.yml/badge.svg)](https://github.com/juststeveking/mit/actions/workflows/ci.yml) [![Release](https://github.com/juststeveking/mit/actions/workflows/release.yml/badge.svg)](https://github.com/juststeveking/mit/actions/workflows/release.yml) [![Packagist](https://img.shields.io/packagist/v/juststeveking/mit)](https://packagist.org/packages/juststeveking/mit) [![Codecov](https://codecov.io/gh/juststeveking/mit/branch/main/graph/badge.svg?token=)](https://codecov.io/gh/juststeveking/mit) [![PHP](https://img.shields.io/badge/php-%5E8.1-8892BF)](https://www.php.net/)
 
 Quick links
 - Documentation: README (this file)
