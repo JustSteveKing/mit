@@ -1,0 +1,43 @@
+# Composer
+/vendor/
+/composer.lock
+
+# PHPUnit
+/.phpunit.result.cache
+/coverage.xml
+
+# IDEs and editors
+/.idea/
+/.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Generated docs/site
+/docs-site/
+
+# Node
+node_modules/
+
+# Logs and temp files
+*.log
+tmp/
+
+# local env
+.env
+.env.local
+
+# distribution artifacts
+dist/
+build/
+
+# vendor binaries
+/vendor/bin/
+
+# baselines (if you don't want to commit them remove these entries)
+/phpstan-baseline.neon
+/psalm-baseline.xml
+

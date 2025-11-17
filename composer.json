@@ -1,0 +1,66 @@
+{
+  "name": "juststeveking/mit",
+  "description": "A lightweight, type-safe event emitter implementing PSR-14.",
+  "type": "library",
+  "license": "MIT",
+  "keywords": [
+    "event",
+    "dispatcher",
+    "psr-14",
+    "pub-sub",
+    "event-emitter"
+  ],
+  "authors": [
+    {
+      "role": "Maintainer",
+        "name": "Steve McDougall",
+        "email": "steve@juststeveking.com",
+        "homepage": "https://juststeveking.link"
+    }
+  ],
+  "require": {
+    "php": "^8.1",
+    "psr/event-dispatcher": "^1.0"
+  },
+  "require-dev": {
+    "laravel/pint": "^1.25",
+    "phpstan/phpstan": "^2.1",
+    "phpunit/phpunit": "^12.4",
+    "rector/rector": "^2.2",
+    "roave/security-advisories": "dev-latest",
+    "vimeo/psalm": "^6.13"
+  },
+  "autoload": {
+    "psr-4": {
+      "JustSteveKing\\Mit\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "JustSteveKing\\Mit\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "lint": [
+      "./vendor/bin/pint --test --parallel"
+    ],
+    "pint": [
+      "./vendor/bin/pint --parallel"
+    ],
+    "stan": [
+      "./vendor/bin/phpstan analyse --memory-limit=-1"
+    ],
+    "test": [
+      "./vendor/bin/phpunit --testdox"
+    ],
+    "types": [
+      "./vendor/bin/psalm"
+    ]
+  },
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}

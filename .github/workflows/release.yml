@@ -1,0 +1,52 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+
+      - name: Validate composer.json
+        run: composer validate --no-check-publish
+
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist --no-progress
+
+      - name: Run tests
+        run: ./vendor/bin/phpunit --colors=always --no-coverage
+
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ github.ref_name }}
+          release_name: ${{ github.ref_name }}
+          body_path: CHANGELOG.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Notify Packagist
+        if: ${{ secrets.PACKAGIST_TOKEN != '' }}
+        env:
+          PACKAGIST_TOKEN: ${{ secrets.PACKAGIST_TOKEN }}
+        run: |
+          echo "Notifying Packagist of the new release..."
+          RESPONSE=$(curl -s -w "%{http_code}" -o /tmp/packagist_response.txt -X POST \
+            "https://packagist.org/api/update-package?username=${{ github.repository_owner }}&apiToken=${PACKAGIST_TOKEN}" \
+            -d "repository=https://github.com/${{ github.repository }}")
+          HTTP_CODE=$(tail -n1 /tmp/packagist_response.txt || echo "$RESPONSE")
+          echo "Packagist response code: $RESPONSE"
+          if [ "$RESPONSE" -ne 200 ]; then
+            echo "Packagist notification failed. Response:" && cat /tmp/packagist_response.txt
+            exit 1
+          fi
